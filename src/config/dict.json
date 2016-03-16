@@ -1,6 +1,6 @@
 {
   "home": "Home",
-  "welcome": "Welcome to %s",
+  "welcome": "Welcome to <b>%s</b>",
   "catalog": "%s",
   "details": "%s details",
   "create": "Create %s",
