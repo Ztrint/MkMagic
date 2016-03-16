@@ -1,0 +1,19 @@
+<div id="project-home" class="module">
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 class="page-header">
+        <?php echo sprintf($_d_->get('welcome'), $_p_->getName()) ?>
+      </h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <p><?php echo $_p_->getDescription() ?></p>
+      <p>Author: <?php echo $_p_->getAuthor() ?></p>
+      <p>Version: <?php echo $_p_->getVersion() ?></p>
+    </div>
+  </div>
+
+</div>

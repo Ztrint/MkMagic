@@ -1,0 +1,32 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="index.html"><?php echo $_p_->getName() ?></a>
+  </div>
+
+  <ul class="nav navbar-right top-nav">
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>  <?php echo $_d_->get('sess_user') ?> <b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a href="#"><i class="fa fa-fw fa-user"></i> <?php echo $_d_->get('sess_profile') ?></a></li>
+        <li><a href="#"><i class="fa fa-fw fa-gear"></i> <?php echo $_d_->get('sess_options') ?></a></li>
+        <li class="divider"></li>
+        <li><a href="#"><i class="fa fa-fw fa-power-off"></i> <?php echo $_d_->get('sess_logout') ?></a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+    <ul class="nav navbar-nav side-nav">
+      <li class="active"><a href="#project-home"><i class="fa fa-fw fa-home"></i> <?php echo $_d_->get('home') ?></a></li>
+      <?php foreach($_p_->getModules() as $m): ?>
+      <li><a href="#<?php echo $m->getId(); ?>-list"><i class="<?php echo $m->getIcon() ?>"></i> <?php echo $m->getAlias(); ?></a></li>
+      <?php endforeach; ?>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,27 @@
+{
+  "home": "Home",
+  "welcome": "Welcome to %s",
+  "catalog": "%s",
+  "details": "%s details",
+  "create": "Create %s",
+  "edit": "Edit %s",
+  "delete": "Delete",
+  "save": "Save",
+  "cancel": "Return",
+  "actions": "Actions",
+  "show": "Show",
+  "show_field": "The %s's %s (a %s)",
+  "sess_user": "User",
+  "sess_profile": "My profile",
+  "sess_options": "Options",
+  "sess_logout": "Log out",
+  "plural": {
+    "default": "%sos",
+    "rules": {
+      "/[aeioukctm]$/i": "%ss",
+      "/[z]$/i": "%s-ces",
+      "/[dnsrl]$/i": "%ses",
+      "/[x]$/i": "%s"
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "name": "A sample mockup",
+  "author": "Nicolas Castro",
+  "description": "A demonstration of MockupMagic functionalities and configuration.",
+  "version": "0.0.1",
+  "entities": [
+    {
+      "id": "employee",
+      "alias": "employee",
+      "plain": ["surname", ", ", "name"],
+      "fields": [
+        {
+          "name": "id",
+          "type": "int",
+          "identity": true
+        },
+        {
+          "name": "surname",
+          "type": "string",
+          "length": 30
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "length": 30
+        }
+      ]
+    },
+    {
+      "id": "task",
+      "alias": "homework",
+      "fields": [
+        {
+          "name": "id",
+          "type": "int",
+          "identity": true
+        },
+        {
+          "name": "descripcion",
+          "alias": "Activity description",
+          "type": "string",
+          "length": 200
+        },
+        {
+          "name": "Hours",
+          "type": "integer",
+          "length": 30
+        }
+      ],
+      "relations": [
+        {
+          "name": "Asignee",
+          "references": "employee",
+          "matching": "id"
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": "crud_employee",
+      "alias": "Employees",
+      "entity": "employee",
+      "icon": "fa a-fw fa-user"
+    },
+    {
+      "id": "crud_activity",
+      "alias": "Tasks",
+      "entity": "task",
+      "icon": "fa fa-fw fa-bar-chart-o"
+    }
+  ]
+}

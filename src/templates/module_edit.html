@@ -1,0 +1,11 @@
+<div id="<?php echo $m->getId(); ?>-edit" class="module">
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 class="page-header"><?php echo MkMagic\Helper\Text::capitalize(sprintf($_d_->get('edit'),$m->getEntity()->getAlias())) ?></h2>
+    </div>
+  </div>
+
+  <?php include($tpldir.'module_form.html'); ?>
+
+</div>

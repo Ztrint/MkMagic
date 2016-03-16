@@ -1,0 +1,14 @@
+<div id="<?php echo $m->getId(); ?>-new" class="module">
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 class="page-header"><?php echo MkMagic\Helper\Text::capitalize(sprintf($_d_->get('create'),$m->getEntity()->getAlias())) ?></h2>
+    </div>
+  </div>
+
+  <?php 
+  $save_action=$m->getId().'-list';
+  include($tpldir.'module_form.html');
+  ?>
+
+</div>

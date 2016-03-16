@@ -1,0 +1,26 @@
+<div id="<?php echo $m->getId(); ?>-show" class="module">
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 class="page-header"><?php echo MkMagic\Helper\Text::capitalize(sprintf($_d_->get('details'),$m->getEntity()->getAlias())); ?></h2>
+      <ol class="breadcrumb">
+        <li><a class="btn btn-default" href="#<?php echo $m->getId(); ?>-list"><?php echo $_d_->get('cancel') ?></a></li>
+        <li><a class="btn btn-info" href="#<?php echo $m->getId(); ?>-edit"><?php echo sprintf($_d_->get('edit'), $m->getEntity()->getAlias()) ?></a></li>
+        <li><a class="btn btn-danger" href="#<?php echo $m->getId(); ?>-list"><?php echo $_d_->get('delete') ?></a></li>
+      </ol>
+    </div>
+  </div>
+
+  <?php $e=$m->getEntity(); ?>
+  <table class="table table-responsive">
+    <?php foreach($e->getFields() as $f): ?>
+    <?php if (!$f->isIdentity()): ?>
+    <tr>
+      <th><?php echo MkMagic\Helper\Text::capitalize($f->getAlias()); ?></th>
+      <td><?php echo sprintf($_d_->get('show_field'), $e->getAlias(), $f->getAlias(), $f->getType()); ?></td>
+    </tr>
+    <?php endif; ?>
+    <?php endforeach; ?>
+  </table>
+
+</div>

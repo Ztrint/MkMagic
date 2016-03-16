@@ -1,0 +1,31 @@
+<?php $e=$m->getEntity(); ?>
+
+<div class="row">
+  <div class="col-lg-12">
+    <form action="">
+
+      <?php foreach($e->getRelations() as $r): ?>
+      <div class="form-group">
+        <label><?php echo MkMagic\Helper\Text::capitalize($r->getName()); ?></label>
+        <select class="form-control">
+          <?php foreach($_f_->get($r->getReferences()->getId(),[]) as $x): ?>
+          <option value=""><?php echo $r->getReferences()->asString($x) ?></option>
+          <?php endforeach; ?>
+        </select>
+      </div>
+      <?php endforeach; ?>
+
+      <?php foreach($e->getFields() as $f): ?>
+      <?php if (!$f->isIdentity()): ?>
+      <div class="form-group">
+        <label for="<?php echo $m->getId(); ?>-<?php echo $f->getName(); ?>"><?php echo MkMagic\Helper\Text::capitalize($f->getAlias()); ?></label>
+        <input type="text" class="form-control" name="<?php echo $f->getName(); ?>" id="<?php echo $f->getName(); ?>" maxlength="<?php echo $f->getLength(); ?>" />
+      </div>
+      <?php endif; ?>
+      <?php endforeach; ?>
+
+      <a href="#<?php echo $save_action; ?>" class="btn btn-default"><?php echo $_d_->get('cancel') ?></a>
+      <a href="#<?php echo $save_action; ?>" class="btn btn-success"><?php echo $_d_->get('save') ?></a>
+    </form>
+  </div>
+</div>

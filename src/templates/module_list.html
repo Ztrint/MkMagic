@@ -1,0 +1,40 @@
+<div id="<?php echo $m->getId(); ?>-list" class="module">
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 class="page-header"><?php echo MkMagic\Helper\Text::capitalize(sprintf($_d_->get('catalog'),MkMagic\Helper\Text::pluralize($m->getEntity()->getAlias()))) ?></h2>
+      <ol class="breadcrumb">
+        <li><a class="btn btn-info" href="#<?php echo $m->getId(); ?>-new"><?php echo sprintf($_d_->get('create'), $m->getEntity()->getAlias()) ?></a></li>
+      </ol>
+    </div>
+  </div>
+
+  <?php $e=$m->getEntity(); ?>
+  <table class="table table-responsive">
+    <tr>
+      <?php foreach($e->getRelations() as $r): ?>
+      <th><?php echo MkMagic\Helper\Text::capitalize($r->getReferences()->getAlias()); ?></th>
+      <?php endforeach; ?>
+
+      <?php foreach($e->getFields() as $f): ?>
+      <?php if (!$f->isIdentity()): ?>
+      <th><?php echo MkMagic\Helper\Text::capitalize($f->getAlias()); ?></th>
+      <?php endif; ?>
+      <?php endforeach; ?>
+
+      <th><?php echo $_d_->get('actions') ?></th>
+    </tr>
+
+    <?php foreach($_f_->get($m->getEntity()->getId(), []) as $x): ?>
+    <tr>
+      <?php foreach($e->getFields() as $f): ?>
+      <?php if (!$f->isIdentity()): ?>
+      <td><?php echo $x->get($f->getName()) ?></td>
+      <?php endif; ?>
+      <?php endforeach; ?>
+      <td><a href="#<?php echo $m->getId(); ?>-show" class="btn btn-primary"><?php echo $_d_->get('show') ?></a></td>
+    </tr>
+    <?php endforeach; ?>
+  </table>
+
+</div>
